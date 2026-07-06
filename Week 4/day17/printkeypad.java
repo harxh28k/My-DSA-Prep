@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class printkeypad{
+    public static void main(String[]args){
+        Scanner scn = new Scanner(System.in);
+        String str = scn.next();
+        printkey(str,"");
+    }
+    static String []codes = {".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+    public static void printkey(String ques, String ans ){
+        if(ques.length()==0){
+            System.out.println(ans);
+            return;
+        }
+        char ch = ques.charAt(0);
+        String roq = ques.substring(1);
+
+
+        String codeforch = codes[ch-'0'];
+        for(int i=0;i<codeforch.length();i++){
+            char cop= codeforch.charAt(i);
+            printkey(roq, ans +cop);
+        }
+        
+    }
+}
